@@ -1,8 +1,28 @@
+
 .header {
     background-color: #277BC0;
-    /* height: 5rem; */
 }
 
 .header-title {
     color: #FFF4CF;
+}
+
+
+/* word.html */
+.word-container{
+    background-color: #EEEEEE;
+}
+.word-definitions {
+    width: 80%;
+    margin: auto;
+    background-color: #fff;
+}
+/* 
+.word-definitions:hover {
+    box-shadow: gray 2px 2px 2px 2px;
+} */
+
+.word-img {
+    border: white solid 10px;
+    border-radius: 50%;
 }
