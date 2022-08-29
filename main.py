@@ -1,8 +1,7 @@
-import os
+from flask import Flask, request, render_template, redirect, url_for
 from dotenv import load_dotenv
 import requests
-import json
-from flask import Flask, request, render_template, redirect, url_for
+import os
 
 app = Flask(__name__)
 
@@ -24,11 +23,8 @@ def word_page(word):
         "Authorization": f'Token {API_KEY}'
     }
     with requests.get(f'https://owlbot.info/api/v4/dictionary/{word}', headers=headers) as response:
-        print("------------------------------------------------------------------")
-        print(word)
-        print("called")
-        print(response.json())
-        print("-------------------------------------------------------------------")
+        if response.status_code != 200:
+            return render_template('not_found.html', error=response.status_code)
     return render_template('word.html', word=response.json())
 
 
