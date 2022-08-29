@@ -1,10 +1,14 @@
 import os
+from dotenv import load_dotenv
 import requests
+import json
 from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
-API_KEY = os.environ.get("API_KEY")
+load_dotenv()
+
+API_KEY = os.environ.get('API_KEY')
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -14,16 +18,19 @@ def home_page():
     return render_template("index.html")
 
 
-@app.route("/<word>")
+@app.route("/<string:word>")
 def word_page(word):
-    print("request method got---------------------------------------")
     headers = {
         "Authorization": f'Token {API_KEY}'
     }
     with requests.get(f'https://owlbot.info/api/v4/dictionary/{word}', headers=headers) as response:
-        word_data = response.json()
-    return render_template('word.html', word=word_data)
-    # return word_data
+        print("------------------------------------------------------------------")
+        print(word)
+        print("called")
+        print(response.json())
+        print("-------------------------------------------------------------------")
+    return render_template('word.html', word=response.json())
+
 
 
 if __name__ == "__main__":
