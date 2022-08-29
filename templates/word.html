@@ -3,5 +3,23 @@
 {% block title %} word {% endblock title %}
 
 {% block body %} 
-    {{word}}
+    <div class="container-fluid word-container">
+        <div class="row py-5">
+            <div class="col-12 mb-3 text-center">
+                <img class="word-img" src="{{word['definitions'][0]['image_url']}}" alt="image not found">
+            </div>
+            <div class="col-12 word-definitions">
+                <span class="h3">{{ word['definitions'][0]['emoji'] }} </span>
+                <span class="h1">{{ word['word'] }}</span> [ <em class="h3">{{ word['pronunciation'] }}</em> ]
+                <hr>
+                <p class="h5"><b>{{ word['definitions'][0]['type'] }}</b></p>
+                <p><em><u>Definition:</u></em> {{ word['definitions'][0]['definition'] }}</p>
+                <em><p><em><u>Example:</u></em> {{ word['definitions'][0]['example'] }}</p></em>
+                <p></p>
+            </div>
+        </div>
+     
+
+
+    </div>
 {% endblock body %}
