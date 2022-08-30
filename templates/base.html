@@ -22,7 +22,9 @@
 
     <header class="container-fluid header py-5">
         <nav class="container text-center h1">
-            <h1 class="header-title">Pocket Dictionary</h1>
+            <a class="social-media text-center" href="{{ url_for('home_page') }}" >
+                <h1 class="header-title">Pocket Dictionary</h1>
+            </a>
             <em>
                 <h6 class="header-title">Make your words meaningful</h6>
             </em>
@@ -41,8 +43,10 @@
     <footer class="footer">
         <div class="icons pt-3 row">
             <div class="col">
-                <i class="fa-solid footer-text-icon fa-2x fa-book-bookmark"></i>
-                <h2 class="footer-title footer-text-icon">Pocket-Dictionary</h2>
+                <a href="{{ url_for('home_page') }}" class="social-media">
+                    <i class="fa-solid footer-text-icon fa-2x fa-book-bookmark"></i>
+                    <h2 class="footer-title footer-text-icon">Pocket-Dictionary</h2>
+                </a>
             </div>
             <div class="col">
                 <a class="social-media footer-text-icon" href="https://www.github.com/viralRupani" target="_blank">
