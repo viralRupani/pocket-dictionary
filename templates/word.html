@@ -16,7 +16,8 @@
                 {{ word['definitions'][0]['emoji'] }}
                 {% endif %}
             </span>
-            <span class="h1">{{ word['word'] }}</span> [ <em class="h3">{{ word['pronunciation'] }}</em> ]
+            <span class="h1">{{ word['word'] }}</span> 
+                {% if word['pronunciation'] != None %}[ <em class="h3">{{ word['pronunciation'] }} </em> ] {% endif %}
             <hr>
             <p class="h5"><b>{{ word['definitions'][0]['type'] }}</b></p>
             <p><em><u>Definition:</u></em> {{ word['definitions'][0]['definition'] }}</p>
